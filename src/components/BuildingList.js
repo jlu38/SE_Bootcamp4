@@ -4,8 +4,7 @@ import RemoveBuilding from './RemoveBuilding';
 
 class BuilingList extends React.Component {
 	render() {
-		const { bList, data, filterText, selectedUpdate} = this.props;
-		// console.log("blist" + bList)
+		const { bList, filterText, selectedUpdate} = this.props;
 
 		const buildingList = bList
 			.filter(directory => {
