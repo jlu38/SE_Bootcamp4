@@ -1,10 +1,14 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-export default ({directoryid}) => {
-    // console.log(directoryid)
-    return(
-        <span>
-            <button>x</button>
-        </span>
-    )
+class RemoveBuilding extends React.Component{
+    render(){
+        const {buildingIndex, removeBuilding} = this.props;
+        return(
+            <span>
+                <button onClick={() => removeBuilding(buildingIndex)}>x</button>
+            </span>
+        )
+    }
 }
+
+export default RemoveBuilding;

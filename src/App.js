@@ -4,7 +4,6 @@ import ViewBuilding from './components/ViewBuilding';
 import BuildingList from './components/BuildingList';
 import Credit from './components/Credit';
 import AddBuilding from './components/AddBuilding';
-import RemoveBuilding from './components/RemoveBuilding'
 
 class App extends React.Component {
   constructor(props) {
@@ -37,17 +36,16 @@ class App extends React.Component {
     console.log(this.state.bList);
   }
 
-  // removeBuilding(id) {
-  //   const { buildingList } = this.state.buildingList
-  //   console.log(buildingList)
-  //   const newList = [
-  //     ...buildingList.slice(0, id),
-  //     ...buildingList.slice(id+1)
-  //   ]
-  //   this.setState({
-  //     buildingList: newList
-  //   })
-  // }
+  removeBuilding(index) {
+    const bList = this.state.bList
+    const newList = [
+      ...bList.slice(0, index),
+      ...bList.slice(index+1)
+    ]
+    this.setState({
+      bList: newList
+    })
+  }
 
   render() {
     
@@ -74,6 +72,7 @@ class App extends React.Component {
                     bList={this.state.bList}
                     filterText={this.state.filterText}
                     selectedUpdate={this.selectedUpdate.bind(this)}
+                    removeBuilding={this.removeBuilding.bind(this)}
                   />
                 </table>
               </div>

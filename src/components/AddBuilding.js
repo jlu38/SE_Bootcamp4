@@ -9,7 +9,7 @@ class AddBuilding extends React.Component {
             name: '',
             coordinates: {
                 latitude: undefined,
-                longitude: undefined,
+                longitude: undefined
             },
             address: ''
         }
