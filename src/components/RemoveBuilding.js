@@ -4,9 +4,9 @@ class RemoveBuilding extends React.Component{
     render(){
         const {buildingIndex, removeBuilding} = this.props;
         return(
-            <span>
-                <button onClick={() => removeBuilding(buildingIndex)}>x</button>
-            </span>
+            <div className="removeButton">
+                <button type="button" class="btn btn-danger btn-lg" onClick={() => removeBuilding(buildingIndex)}>x</button>
+            </div>
         )
     }
 }

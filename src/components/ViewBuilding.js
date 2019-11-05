@@ -12,16 +12,15 @@ class ViewBuilding extends React.Component {
 			})
 			.map(bData => {
 				return (
-					<ul>
-						<li key={bData.code}>Code: {bData.code}</li>
-						<li key={bData.name}>Name: {bData.name}</li>
-						<li key={bData.address}>Address: {bData.address}</li>
-						<li key={bData.coordinates}>
+					<div>
+						<p key={bData.code}>Code: {bData.code}</p>
+						<p key={bData.name}>Name: {bData.name}</p>
+						<p key={bData.address}>Address: {bData.address}</p>
+						<p key={bData.coordinates}>
 							Coordinates: Latitude: {bData.coordinates && bData.coordinates.latitude + " "} 
 							Longitude: {bData.coordinates && bData.coordinates.longitude}
-
-						</li>
-					</ul>
+						</p>
+					</div>
 				)
 			})
 
