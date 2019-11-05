@@ -4,7 +4,7 @@ class AddBuilding extends React.Component {
     constructor(props){
         super(props);
         this.state={
-            id: null,
+            id: undefined,
             code: '',
             name: '',
             coordinates: {
@@ -14,8 +14,8 @@ class AddBuilding extends React.Component {
             address: ''
         }
         this.handleChange = this.handleChange.bind(this);
-        this.addNewBuilding = this.addNewBuilding.bind(this);
         this.handleCoordinates = this.handleCoordinates.bind(this);
+        this.addNewBuilding = this.addNewBuilding.bind(this);
     }
     handleChange = (e) => {
         const target = e.target;
@@ -27,11 +27,8 @@ class AddBuilding extends React.Component {
     }
     handleCoordinates = (e) => {
         const target = e.target;
-
         const value = target.value;
-
         const name = target.name;
-
         this.setState({
             coordinates: {
                 ...this.state.coordinates,
@@ -70,56 +67,78 @@ class AddBuilding extends React.Component {
     render(){
         return(
             <div className="buildingForm" onSubmit={this.addNewBuilding} >
-                <h2>Add Building</h2>
+                <h2><b>Add New Building Form</b></h2>
                 <form>
-                    <label>
-                        <h3>Code:</h3>
-                        <input 
-                            type="text" 
-                            value={this.state.code} 
-                            onChange={this.handleChange} 
-                            name="code"
-                            required> 
-                        </input>
-                    </label>
-                    <label>
-                        <h3>Name:</h3>
-                        <input 
-                            type="text" 
-                            value={this.state.name} 
-                            onChange={this.handleChange} 
-                            name="name"
-                            required>
-                         </input>
-                    </label>
-                    <label>
-                        <h3>Address</h3>
-                        <input 
-                            type="text" 
-                            value={this.state.address}
-                            onChange={this.handleChange} 
-                            name="address">
-                            
-                        </input>
-                    </label>
-    
-                    <label>
-                        <h3>Coordinates:</h3>
-                        Latitude:
-                        <input 
-                            type="number" 
-                            value={this.state.coordinates.latitude}
-                            onChange={this.handleCoordinates} 
-                            name="latitude"></input>
-                        Longitude:
-                        <input 
-                            type="number"
-                            value={this.state.coordinates.longitude}
-                            onChange={this.handleCoordinates} 
-                            name="longitude">                        
-                        </input>
-                    </label> 
-                    <input type="submit"></input>
+                    <div className="form-row">
+                        <div className="form-group col-md-2">
+                            <label>
+                                <h3>Code:</h3>
+                            </label>
+                            <input 
+                                type="text" 
+                                value={this.state.code} 
+                                onChange={this.handleChange} 
+                                name="code"
+                                placeholder="AAA"
+                                required> 
+                            </input>
+                        </div>
+                        <div className="form-group col-md-6">
+                            <label>
+                                <h3>Name:</h3>
+                            </label>
+                                <input 
+                                    type="text" 
+                                    value={this.state.name} 
+                                    onChange={this.handleChange} 
+                                    name="name"
+                                    placeHolder="Century Tower"
+                                    required>
+                                </input>
+                        </div>
+                    </div>
+                    <div className="form-row">
+                        <label>
+                            <h3>Address</h3>
+                        </label>
+                            <input 
+                                type="text" 
+                                value={this.state.address}
+                                onChange={this.handleChange} 
+                                name="address"
+                                placeholder="123 Main St">
+                                
+                            </input>
+
+                    </div>
+                    <div className="form-group">
+                        <label>
+                            <h3>Coordinates:</h3>
+                            <div className="form-row">
+                                <div className="form-group col-md-5">
+                                    <label>Latitude:</label>
+                                    <input 
+                                        type="number" 
+                                        value={this.state.coordinates.latitude}
+                                        onChange={this.handleCoordinates} 
+                                        name="latitude"
+                                        placeholder="123.64320">
+                                    </input>
+                                </div>
+                                <div className="form-group col-md-5">
+                                    <label>Longitude:</label>
+                                    <input 
+                                        type="number"
+                                        value={this.state.coordinates.longitude}
+                                        onChange={this.handleCoordinates} 
+                                        name="longitude"
+                                        placeholder="321.53212">                        
+                                    </input>
+                                </div>
+                            </div>
+                        </label> 
+                    </div>
+                    <input type="submit" className="btn btn-primary"></input>
                 </form>
             </div>
         )

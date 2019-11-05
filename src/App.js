@@ -65,7 +65,7 @@ class App extends React.Component {
                 <table className="table table-striped table-hover">
                   <tr>
                     <td>
-                      <b>Code Building</b>
+                      <h3>Code Building</h3>
                     </td>
                   </tr>
                   <BuildingList
@@ -85,10 +85,12 @@ class App extends React.Component {
               />
             </div>
           </div>
-          <AddBuilding 
-            bList={this.state.bList}
-            addBuilding={this.addBuilding.bind(this)}
-          />
+          <div className="buildingForm">
+            <AddBuilding 
+              bList={this.state.bList}
+              addBuilding={this.addBuilding.bind(this)}
+            />
+          </div>
           <Credit />
         </main>
       </div>
